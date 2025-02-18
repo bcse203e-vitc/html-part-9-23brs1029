@@ -1,0 +1,235 @@
+
+:root {
+  --primary-color: #1E3A5F;
+  --secondary-color: white ;
+  --button-color: #1C72C3;
+  --button-hover: #155A99;
+  --background-color: #5DA399;
+  --text-color: #333;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  font-size: 24px;
+}
+
+.services {
+  padding: 20px;
+}
+
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px;
+}
+
+.service {
+  background: #1E3A5F;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  width: 250px;
+  color: white;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+}
+
+.book-btn {
+  background: var(--button-color);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.book-btn:hover {
+  background: var(--button-hover);
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(239, 232, 232, 0.5);
+  overflow-y: auto;
+  padding: 40px 0;
+}
+
+.modal-content {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--button-color);
+  outline: none;
+}
+
+button {
+  background: var(--button-color);
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: var(--button-hover);
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+#appointmentList {
+  width: 90%;
+  max-width: 800px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#appointmentList table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#appointmentList table th,
+#appointmentList table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#appointmentList table th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+}
+
+#appointmentList table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#appointmentList table tr:hover {
+  background-color: #f1f1f1;
+}
+
+#appointmentList h2 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+#appointmentList table td:last-child {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+#appointmentList table td:last-child:contains("Pending") {
+  color: #e67e22;
+}
+
+
+@media (max-width: 768px) {
+  #appointmentList {
+      width: 95%;
+      padding: 15px;
+  }
+
+  #appointmentList table th,
+  #appointmentList table td {
+      padding: 8px;
+      font-size: 14px;
+  }
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+@keyframes slideIn {
+  from {
+      transform: translateY(-20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .service-list {
+      flex-direction: column;
+      align-items: center;
+  }
+  .service {
+      width: 90%;
+  }
+  .modal-content {
+      width: 90%;
+  }
+}
